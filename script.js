@@ -82,7 +82,7 @@ function draw() {
     }
 
     //paint background
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "#222";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // paint snake
@@ -150,9 +150,7 @@ function keyDownEvent(e) {
             pause = false
             break;
         case 32:
-            if(pause){
-                pause = false
-            } else{
+            if(!pause){
                 pause = true
                 nextX = 0
                 nextY = 0
