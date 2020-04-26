@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #232323;
+}
+
+.main {
+    width: 70rem;
+    height: 40rem;
+    background: #222222;
+    box-shadow: 0.5rem 0.5rem 1.5rem rgba(0, 0, 0, 0.5), -0.5rem -0.5rem 1rem rgba(255, 255, 255, 0.05);
+    border-radius: 2rem;
+    margin: 3rem;
+}
+
+.start-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 1.5rem 0;
+    padding: 1rem;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.start-screen>.left>.top {
+    font-size: 1.6rem;
+    color: #fafafa;
+}
+
+.top>h1{
+    text-align: center;
+}
+
+.left>.bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.left>.bottom > .blobs{
+    display: flex;
+
+    margin-bottom: 1rem;
+}
+
+.resume > .blob{
+    background: gray!important;
+}
+
+.left>.bottom > .blobs>.blob{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 5rem;
+    background: #ddd;
+    border-radius: .4rem;
+    margin: .3rem;
+    font-size: 1.3rem;
+    font-weight: 900;
+    box-shadow: inset .5rem .5rem 1rem rgba(0, 0, 0, .5);
+    transition: all .2s ease;
+}
+
+.blobs>.blob:hover{
+    /* transform: scale(1.2); */
+    font-size: 1.7rem!important;
+    text-shadow: .4rem .4rem .3rem rgba(0, 0, 0, .5);
+}
+
+
+button {
+    background: #fff;
+    border-radius: 1rem;
+    width: 23rem;
+    height: 6rem;
+    margin: 1rem;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .3rem;
+}
+
+.right{
+    width: 40%;
+}
+
+.high-score{
+    height: 100%;
+    text-align: center;
+    margin: 2rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.high-score>.htext{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.high-score>.hscore{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.high-score>.hscore1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.high-score>.hscore2{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.main>.game{
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+}
+
+.game>canvas{
+    border-radius: 2rem;
+}
