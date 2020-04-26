@@ -26,7 +26,7 @@ window.onload = function() {
 
     // render X times per second
     var x = 8;
-    setInterval(draw, 1000 / x);
+    setInterval(draw, 900 / x);
 };
 
 
@@ -154,12 +154,24 @@ function keyDownEvent(e) {
                 pause = true
                 nextX = 0
                 nextY = 0
+                myFunction()
             }
             break;
     }
 }
 
 
+
+function myFunction() {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+  
+    // Add the "show" class to DIV
+    x.className = "show";
+  
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
 
 
 
