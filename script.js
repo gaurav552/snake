@@ -24,8 +24,11 @@ var appleX, appleY;
 var size = tailSize
 var pause = false
 console.log(localStorage.getItem("highScore"+1))
+
 game_strter()
 
+
+// display score at start screen
 function score_side(){
     let start_screen = document.querySelector(".start-screen")
     let right_side = start_screen.querySelector(".right")
@@ -44,6 +47,8 @@ function score_side(){
     }
 }
 
+
+// add eventlistener to the game start button everytime it is loaded from template
 function game_strter() {
     let start_button = document.querySelector("div#start")
 
@@ -103,7 +108,7 @@ function getTemplate(TId) {
 //     setInterval(draw, 900 / x);
 // };
 
-
+// set random apple locations
 function setApple() {
     let test = true
 
@@ -121,7 +126,8 @@ function setApple() {
 
 // apple
 setApple()
-    // draw
+    // draw the game in canvas
+
 function draw() {
     // move snake in next pos
 
@@ -297,7 +303,7 @@ function keyDownEvent(e) {
 }
 
 
-
+// simple toast message
 function myFunction(text, time = 3000, dur = "show") {
     // Get the snackbar DIV
     var x = document.getElementById("snackbar");
@@ -310,6 +316,8 @@ function myFunction(text, time = 3000, dur = "show") {
     setTimeout(function() { x.className = x.className.replace("show", ""); }, time);
 }
 
+
+// play pause button
 document.querySelector(".play_pause").addEventListener("click", e => {
     if (!pause) {
         pause = true
@@ -321,11 +329,14 @@ document.querySelector(".play_pause").addEventListener("click", e => {
     }
 })
 
+// help button
 document.querySelector(".help").addEventListener("click", e => {
 
     myFunction("Arrows to play: Space to Pause", 8000, "long_show")
 })
 
+
+// close button
 document.querySelector(".close").addEventListener("click", e => {
 
     clearInterval(interval_id)
