@@ -5,6 +5,191 @@
     box-sizing: border-box;
 }
 
+
+@keyframes slideOutLeft {
+    from {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  
+    to {
+      -webkit-transform: translate3d(-20rem, 0, 0);
+      transform: translate3d(-20rem, 0, 0);
+    }
+  }
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translate3d(-20rem, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeOutRight {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+@keyframes flip {
+    from {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    40% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    60% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    }
+    80% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    }
+    to {
+        -webkit-transform: perspective(400px);
+        transform: perspective(400px);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes bounce {
+    from,
+    20%,
+    53%,
+    80%,
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    40%,
+    43% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        -webkit-transform: translate3d(0, -30px, 0);
+        transform: translate3d(0, -30px, 0);
+    }
+    70% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        -webkit-transform: translate3d(0, -15px, 0);
+        transform: translate3d(0, -15px, 0);
+    }
+    90% {
+        -webkit-transform: translate3d(0, -4px, 0);
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+.flip {
+    animation: flip 1s ease-in;
+}
+
+.fadeInRight {
+    animation: fadeInRight .5s ease-in;
+}
+
+.fadeOutRight {
+    animation: fadeOutRight .5s ease-in;
+}
+
 :root {
     font-size: 10px;
     font-family: 'Josefin Sans', sans-serif;
@@ -27,6 +212,26 @@ body {
     box-shadow: 0.5rem 0.5rem 1.5rem rgba(0, 0, 0, 0.5), -0.5rem -0.5rem 1rem rgba(255, 255, 255, 0.05);
     border-radius: 2rem;
     margin: 3rem;
+    z-index: 2;
+}
+
+.controls {
+    display: none;
+    z-index: 1;
+}
+
+.controls>button {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #232323;
+    border: none;
+    transition: all .3s ease-in;
 }
 
 .start-screen {
@@ -39,7 +244,7 @@ body {
     padding: 1rem;
 }
 
-.left{
+.left {
     display: flex;
     flex-direction: column;
     width: 60%;
@@ -50,7 +255,7 @@ body {
     color: #fafafa;
 }
 
-.top>h1{
+.top>h1 {
     text-align: center;
 }
 
@@ -62,17 +267,16 @@ body {
     margin: 3rem 0;
 }
 
-.left>.bottom > .blobs{
+.left>.bottom>.blobs {
     display: flex;
-
     margin-bottom: 1rem;
 }
 
-.resume > .blob{
+.resume>.blob {
     background: gray!important;
 }
 
-.left>.bottom > .blobs>.blob{
+.left>.bottom>.blobs>.blob {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,30 +291,18 @@ body {
     transition: all .2s ease;
 }
 
-.blobs>.blob:hover{
+.blobs>.blob:hover {
     /* transform: scale(1.2); */
     font-size: 1.7rem!important;
+    transform: translatey(-1.2rem);
     text-shadow: .4rem .4rem .3rem rgba(0, 0, 0, .5);
 }
 
-
-button {
-    background: #fff;
-    border-radius: 1rem;
-    width: 23rem;
-    height: 6rem;
-    margin: 1rem;
-    font-size: 1.7rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: .3rem;
-}
-
-.right{
+.right {
     width: 40%;
 }
 
-.high-score{
+.high-score {
     height: 100%;
     text-align: center;
     margin: 2rem;
@@ -121,83 +313,194 @@ button {
     align-items: center;
 }
 
-.high-score>.htext{
+.high-score>.htext {
     font-size: 4rem;
     margin-bottom: 2rem;
     text-align: center;
 }
 
-.high-score>.hscore{
+.high-score>.highScore1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
-.high-score>.hscore1{
+
+.high-score>.highScore2 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
-.high-score>.hscore2{
+
+.high-score>.highScore3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
-
-.main>.game{
+.main>.game {
     width: 100%;
     height: 100%;
     border-radius: 2rem;
 }
 
-.game>canvas{
+.game>canvas {
     border-radius: 2rem;
 }
 
-
-
-
 #snackbar {
-    visibility: hidden; /* Hidden by default. Visible on click */
-    min-width: 250px; /* Set a default minimum width */
-    margin-left: -125px; /* Divide value of min-width by 2 */
-    background-color: #333; /* Black background color */
-    color: #fff; /* White text color */
-    text-align: center; /* Centered text */
-    border-radius: 2px; /* Rounded borders */
-    padding: 2rem; /* Padding */
-    position: fixed; /* Sit on top of the screen */
-    z-index: 1; /* Add a z-index if needed */
-    left: 50%; /* Center the snackbar */
-    bottom: 30px; /* 30px from the bottom */
+    visibility: hidden;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    background-color: #333;
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 2rem;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    bottom: 30px;
+    /* 30px from the bottom */
     border-radius: 1.5rem;
     font-size: 1.7rem;
     min-height: 4rem;
-  }
-  
-  /* Show the snackbar when clicking on a button (class added with JavaScript) */
-  #snackbar.show {
-    visibility: visible; /* Show the snackbar */
+}
+
+.pos_top {
+    display: none;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    background-color: #333;
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 2rem;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    top: 30px;
+    /* 30px from the bottom */
+    border-radius: 1.5rem;
+    font-size: 1.7rem;
+    min-height: 4rem;
+    animation: zoomIn .5s ease-in;
+}
+
+.pos_left {
+    display: none;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    /* Divide value of min-width by 2 */
+    background-color: #333;
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 2rem;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 3rem;
+    /* Center the snackbar */
+    top: 50%;
+    /* 30px from the bottom */
+    border-radius: 1.5rem;
+    font-size: 1.7rem;
+    min-height: 4rem;
+    animation: zoomIn .5s ease-in;
+}
+
+.pos_right {
+    display: none;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    /* Divide value of min-width by 2 */
+    background-color: #333;
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 2rem;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    right: 3rem;
+    /* Center the snackbar */
+    top: 50%;
+    /* 30px from the bottom */
+    border-radius: 1.5rem;
+    font-size: 1.7rem;
+    min-height: 4rem;
+    animation: zoomIn .5s ease-in;
+}
+
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+
+#snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
     /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
     However, delay the fade out process for 2.5 seconds */
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  }
-  
-  /* Animations to fade the snackbar in and out */
-  @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-  }
-  
-  @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-  }
-  
-  @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-  }
-  
-  @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-  }
+}
+
+#snackbar.long_show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 5.5s 2.5s;
+    animation: fadein 0.5s, fadeout .5s 7.5s;
+}
+
+.zoomOut {
+    animation: zoomOut .5s ease-in;
+}
+
+.zoomIn {
+    animation: zoomIn .5s ease-in;
+}
+
+.slideInLeft {
+    animation: slideInLeft .5s ease-in;
+}
+
+.slideOutLeft {
+    animation: slideOutLeft .5s ease-in;
+}
+
+
+/* Animations to fade the snackbar in and out */

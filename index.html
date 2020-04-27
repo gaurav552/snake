@@ -5,50 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Snake</title>
 </head>
 <body>
-    <div class="main">
+
+    
+    <div class="main zoomIn">
+        <div class="pos_top">Previous Score: </div>
+        <div class="snackbar" id="snackbar">Some text some message..</div>
+    </div>
+    <div class="controls">
+        <button type="button" class="play_pause">
+            <span class="material-icons">
+                play_arrow
+                </span>
+        </button>
+        <button type="button" class="close">
+            <span class="material-icons">
+                close
+                </span>
+        </button>
+        <button type="button" class="help">
+            <span class="material-icons">
+                help_outline
+                </span>
+        </button>
+    </div>
+
+    <template id="game_template">
         <div class="game" id="game">
             <canvas id="canvas" width="700px" height="400px"></canvas>
         </div>
-        <div id="snackbar">Some text some message..</div>
-    </div>
+    </template>
 
-    <template>
+    <template id="start_template">
         <div class="start-screen">
             <div class="left">
                 <div class="top">
-                    <h1>Let's Snake</h1>
+                    <h1>Let's</h1>
                 </div>
                 <div class="bottom">
                     <!-- <button>start</button>
                     <button>Continue</button> -->
 
-                    <div class="blobs">
-                        <div class="blob">S</div>
-                        <div class="blob">T</div>
+                    <div class="blobs start" id="start" role="button">
+                        <div class="blob">P</div>
+                        <div class="blob">L</div>
                         <div class="blob">A</div>
-                        <div class="blob">R</div>
-                        <div class="blob">T</div>
+                        <div class="blob">Y</div>
                     </div>
-                    <div class="blobs resume">
-                        <div class="blob">R</div>
-                        <div class="blob">E</div>
-                        <div class="blob">S</div>
-                        <div class="blob">U</div>
-                        <div class="blob">M</div>
-                        <div class="blob">E</div>
-                    </div>
+                </div>
+                <div class="top">
+                    <h1>Snake</h1>
                 </div>
             </div>
 
             <div class="right">
                 <div class="high-score">
                     <h1 class="htext">Top Scores</h1>
-                    <h1 class="hscore">Gaurav - 500</h1>
-                    <h1 class="hscore1">Gaurav - 500</h1>
-                    <h1 class="hscore2">Gaurav - 500</h1>
+                    <h1 class="highScore1"></h1>
+                    <h1 class="highScore2"></h1>
+                    <h1 class="highScore3"></h1>
                 </div>
             </div>
         </div>
