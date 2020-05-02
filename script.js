@@ -23,17 +23,15 @@ var appleX, appleY;
 
 var size = tailSize
 var pause = false
-console.log(localStorage.getItem("highScore"+1))
 
 game_strter()
-
 
 // display score at start screen
 function score_side(){
     let start_screen = document.querySelector(".start-screen")
     let right_side = start_screen.querySelector(".right")
 
-    if(localStorage.getItem("highScore1") === null && localStorage.getItem("highScore1") === null && localStorage.getItem("highScore1") === null){
+    if(localStorage.getItem("highScore1") === null && localStorage.getItem("highScore2") === null && localStorage.getItem("highScore3") === null){
         right_side.setAttribute("style","display:none")
     } else {
         right_side.setAttribute("style","display:block")
@@ -97,16 +95,6 @@ function getTemplate(TId) {
     return document.importNode(window.templates[TId], true)
 }
 
-// window.onload = function() {
-//     canvas = document.getElementById("canvas");
-//     ctx = canvas.getContext("2d");
-
-//     document.addEventListener("keydown", keyDownEvent);
-
-//     // render X times per second
-//     var x = 8;
-//     setInterval(draw, 900 / x);
-// };
 
 // set random apple locations
 function setApple() {
@@ -200,7 +188,6 @@ function draw() {
                 tileSize
             );
         }
-
 
         //snake bites it's tail?
         if (snakeTrail[i].x == snakeX && snakeTrail[i].y == snakeY) {
