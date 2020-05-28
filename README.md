@@ -1,2 +1,3 @@
-# snake game not responsive yet
+# snake game
+classic snake game (not responsive version)
  
